@@ -1,29 +1,33 @@
-<!DOCTYPE html>
+
+html_content = '''<!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ste Nouraddine Klusbedrijf | Vakmanschap in Maassluis</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>NK Nouraddine Klusbedrijf | Your Partner in Maintenance</title>
+    <meta name="description" content="NK Nouraddine Klusbedrijf - Uw partner in onderhoud. Professionele klus- en onderhoudsdiensten in Maassluis en omgeving.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --primary: #1a5f2a;
-            --primary-light: #2d8a42;
-            --accent: #f5a623;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
+            --orange: #FF6600;
+            --orange-light: #FF8533;
+            --black: #1a1a1a;
+            --dark: #0d0d0d;
             --white: #ffffff;
+            --gray: #6c757d;
+            --light-gray: #f5f5f5;
+            --gold: #D4A017;
         }
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--black);
             overflow-x: hidden;
+            background: var(--white);
         }
         
         /* Navigation */
@@ -31,58 +35,62 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(13,13,13,0.95);
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
         }
         
         .nav-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.8rem;
+            text-decoration: none;
         }
         
-        .logo i { color: var(--accent); }
+        .logo img {
+            height: 55px;
+            width: auto;
+            filter: brightness(1.1);
+        }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
         
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
             position: relative;
         }
         
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: var(--orange); }
         
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -6px;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--primary);
+            height: 3px;
+            background: var(--orange);
             transition: width 0.3s;
         }
         
@@ -94,13 +102,13 @@
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: var(--primary);
+            color: var(--orange);
         }
         
         /* Hero Section */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 50%, var(--black) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -108,56 +116,84 @@
             color: var(--white);
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
         
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5" x="0" y="0" width="100" height="100"/></svg>');
-            background-size: 30px 30px;
-            opacity: 0.3;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,102,0,0.1)"/></svg>');
+            background-size: 40px 40px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-40px); }
         }
         
         .hero-content {
             position: relative;
             z-index: 1;
             padding: 2rem;
-            max-width: 800px;
+            max-width: 900px;
+        }
+        
+        .hero-logo {
+            width: 180px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 10px 30px rgba(255,102,0,0.3));
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         .hero-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 0.5rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            padding: 0.6rem 2rem;
             border-radius: 50px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 5px 20px rgba(255,102,0,0.4);
         }
         
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
             margin-bottom: 1rem;
             line-height: 1.1;
+            text-transform: uppercase;
+        }
+        
+        .hero h1 span {
+            color: var(--orange);
+            display: block;
         }
         
         .hero p {
-            font-size: 1.25rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            opacity: 0.85;
+            margin-bottom: 2.5rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 300;
         }
         
         .hero-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -166,39 +202,65 @@
             padding: 1rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             border: 2px solid transparent;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .btn-primary {
-            background: var(--accent);
-            color: var(--dark);
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            color: var(--white);
+            box-shadow: 0 8px 30px rgba(255,102,0,0.4);
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(245,166,35,0.4);
+            box-shadow: 0 15px 40px rgba(255,102,0,0.5);
         }
         
         .btn-outline {
             background: transparent;
             color: var(--white);
-            border-color: rgba(255,255,255,0.5);
+            border-color: var(--orange);
         }
         
         .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary);
+            background: var(--orange);
+            color: var(--white);
+            transform: translateY(-3px);
         }
         
-        /* Services Section */
+        .hero-contact-bar {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .hero-contact-item i {
+            color: var(--orange);
+            font-size: 1.1rem;
+        }
+        
+        /* Section General */
         .section {
             padding: 6rem 2rem;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
         
@@ -208,11 +270,14 @@
         }
         
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
             font-weight: 800;
-            color: var(--dark);
+            color: var(--black);
             margin-bottom: 1rem;
+            text-transform: uppercase;
         }
+        
+        .section-header h2 span { color: var(--orange); }
         
         .section-header p {
             color: var(--gray);
@@ -221,9 +286,18 @@
             margin: 0 auto;
         }
         
+        .section-line {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
@@ -231,84 +305,190 @@
             background: var(--white);
             border-radius: 20px;
             padding: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
             border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
         }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--orange), var(--orange-light));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        
+        .service-card:hover::before { transform: scaleX(1); }
         
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
         }
         
         .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(255,102,0,0.3);
         }
         
         .service-card h3 {
             font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark);
+            margin-bottom: 0.8rem;
+            color: var(--black);
+            font-weight: 700;
         }
         
         .service-card p {
             color: var(--gray);
             font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* About / Van Section */
+        .about-section {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+            color: var(--white);
+        }
+        
+        .about-section .section { max-width: 1300px; }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border: 3px solid var(--orange);
+        }
+        
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 3px solid var(--orange);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+        
+        .about-content h2 span { color: var(--orange); }
+        
+        .about-content p {
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .about-feature i {
+            color: var(--orange);
+            font-size: 1.2rem;
+        }
+        
+        .about-feature span {
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         
         /* Why Choose Us */
-        .why-us {
-            background: var(--light);
-        }
-        
-        .why-us .section { max-width: 1200px; }
+        .why-us { background: var(--light-gray); }
         
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
         
         .feature-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
             display: flex;
-            gap: 1rem;
+            gap: 1.2rem;
             align-items: flex-start;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
         }
         
         .feature-icon {
-            min-width: 50px;
-            height: 50px;
-            background: var(--primary);
+            min-width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
             color: var(--white);
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(255,102,0,0.3);
         }
         
         .feature-text h4 {
             font-size: 1.1rem;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
+            font-weight: 700;
         }
         
         .feature-text p {
             color: var(--gray);
             font-size: 0.9rem;
+            line-height: 1.6;
         }
         
         /* Contact Section */
         .contact-section {
-            background: var(--dark);
+            background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
             color: var(--white);
         }
         
@@ -319,46 +499,98 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
         }
         
         .contact-info h3 {
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
         }
+        
+        .contact-info h3 span { color: var(--orange); }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            padding: 1.2rem;
             background: rgba(255,255,255,0.05);
-            border-radius: 12px;
+            border-radius: 14px;
             transition: all 0.3s;
+            border: 1px solid rgba(255,102,0,0.1);
         }
         
         .contact-item:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,102,0,0.1);
             transform: translateX(5px);
+            border-color: var(--orange);
         }
         
         .contact-item i {
-            width: 45px;
-            height: 45px;
-            background: var(--primary);
-            border-radius: 10px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(255,102,0,0.3);
+        }
+        
+        .contact-item div strong {
+            display: block;
+            margin-bottom: 0.2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--orange);
+        }
+        
+        .contact-item div span, .contact-item div a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        
+        .contact-item div a:hover { color: var(--orange); }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,102,0,0.2);
+        }
+        
+        .social-links a:hover {
+            background: var(--orange);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255,102,0,0.4);
         }
         
         .contact-form {
             background: var(--white);
             padding: 2.5rem;
             border-radius: 20px;
-            color: var(--dark);
+            color: var(--black);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
         }
         
         .form-group {
@@ -368,25 +600,33 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 0.9rem 1rem;
+            padding: 1rem 1.2rem;
             border: 2px solid #e9ecef;
             border-radius: 12px;
             font-family: inherit;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
+            background: #fafafa;
         }
         
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: var(--orange);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(255,102,0,0.1);
         }
         
         .form-group textarea {
@@ -396,53 +636,88 @@
         
         .btn-submit {
             width: 100%;
-            padding: 1rem;
-            background: var(--primary);
+            padding: 1.1rem;
+            background: linear-gradient(135deg, var(--orange), var(--orange-light));
             color: var(--white);
             border: none;
             border-radius: 12px;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(255,102,0,0.4);
         }
         
         .btn-submit:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,102,0,0.5);
         }
         
         /* Footer */
         footer {
-            background: #111;
-            color: var(--gray);
+            background: var(--dark);
+            color: rgba(255,255,255,0.5);
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255,102,0,0.1);
         }
         
-        footer a {
-            color: var(--primary-light);
+        footer strong { color: var(--orange); }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            z-index: 999;
+            transition: all 0.3s;
             text-decoration: none;
         }
         
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.5);
+        }
+        
         /* Responsive */
+        @media (max-width: 992px) {
+            .about-grid,
+            .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .about-image { order: -1; }
+        }
+        
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
-            .hero h1 { font-size: 2.2rem; }
-            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 2rem; }
             .section { padding: 4rem 1.5rem; }
+            .about-features { grid-template-columns: 1fr; }
+            .hero-contact-bar { gap: 1rem; }
         }
         
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* Scroll Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
         }
         
-        .animate {
-            animation: fadeInUp 0.8s ease forwards;
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -452,8 +727,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-hammer"></i>
-                Ste Nouraddine
+                <img src="nklus.png" alt="NK Nouraddine Klusbedrijf Logo">
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -470,110 +744,184 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
+            <img src="nklus.png" alt="NK Nouraddine Klusbedrijf" class="hero-logo">
             <div class="hero-badge">
-                <i class="fas fa-star"></i> Betrouwbaar & Gecertificeerd
+                <i class="fas fa-star"></i> Your Partner in Maintenance
             </div>
-            <h1>Vakkundige Kluswerkzaamheden in Maassluis</h1>
-            <p>Ste Nouraddine Klusbedrijf staat voor kwaliteit, betrouwbaarheid en vakmanschap. Van kleine reparaties tot grote renovaties — wij regelen het voor u.</p>
+            <h1>NK Nouraddine <span>Klusbedrijf</span></h1>
+            <p>Professionele klus- en onderhoudsdiensten voor particulieren en bedrijven in Maassluis en omgeving. Kwaliteit, betrouwbaarheid en vakmanschap staan bij ons voorop.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <i class="fas fa-phone"></i> Gratis Offerte
+                <a href="tel:0031638220529" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Bel Direct
                 </a>
-                <a href="#diensten" class="btn btn-outline">
-                    <i class="fas fa-arrow-down"></i> Onze Diensten
+                <a href="https://wa.me/31638220529" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
                 </a>
+            </div>
+            <div class="hero-contact-bar">
+                <div class="hero-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0031 638 22 05 29</span>
+                </div>
+                <div class="hero-contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>nouraddineklusbedrijf@gmail.com</span>
+                </div>
+                <div class="hero-contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Maassluis, Nederland</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="section" id="diensten">
-        <div class="section-header">
-            <h2>Onze Diensten</h2>
-            <p>Wij bieden een breed scala aan klus- en bouwdiensten voor zowel particulieren als bedrijven in de regio Maassluis.</p>
+        <div class="section-header reveal">
+            <h2>Onze <span>Diensten</span></h2>
+            <p>Wij bieden een breed scala aan professionele klus- en onderhoudsdiensten. Van kleine reparaties tot complete renovaties.</p>
+            <div class="section-line"></div>
         </div>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon"><i class="fas fa-tools"></i></div>
                 <h3>Algemene Kluswerkzaamheden</h3>
-                <p>Van kleine reparaties tot uitgebreide onderhoudswerkzaamheden. Geen klus is te klein of te groot voor ons team.</p>
+                <p>Van kleine reparaties tot uitgebreide onderhoudswerkzaamheden. Geen klus is te klein of te groot voor ons ervaren team. Wij lossen elk probleem vakkundig op.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
                 <h3>Schilderwerk & Afwerking</h3>
-                <p>Professioneel schilderwerk binnen en buiten. Wij zorgen voor een strakke afwerking die jarenlang mooi blijft.</p>
+                <p>Professioneel schilderwerk binnen en buiten. Wij zorgen voor een strakke, duurzame afwerking die jarenlang mooi blijft. Ook voor behang en spuitwerk.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon"><i class="fas fa-hammer"></i></div>
                 <h3>Timmerwerk</h3>
-                <p>Maatwerk in hout: van kozijnen en deuren tot maatmeubilair en traprenovaties. Precisie en kwaliteit staan voorop.</p>
+                <p>Maatwerk in hout van topkwaliteit: van kozijnen en deuren tot maatmeubilair en traprenovaties. Precisie en vakmanschap staan centraal.</p>
             </div>
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-water"></i></div>
-                <h3>Badkamer & Keuken</h3>
-                <p>Complete renovatie van badkamers en keukens. Van ontwerp tot oplevering, wij realiseren uw droomruimte.</p>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-bath"></i></div>
+                <h3>Badkamer Renovatie</h3>
+                <p>Complete renovatie van uw badkamer. Van sloopwerk en leidingen tot tegelwerk en installatie. Wij realiseren uw droombadkamer van A tot Z.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                <h3>Keuken Renovatie</h3>
+                <p>Vernieuwing van uw keuken inclusief aanpassingen, tegelwerk, installatie van apparatuur en complete make-over. Modern en functioneel.</p>
+            </div>
+            <div class="service-card reveal">
                 <div class="service-icon"><i class="fas fa-home"></i></div>
-                <h3>Renovatie & Verbouw</h3>
-                <p>Grote en kleine renovatieprojecten. Wij helpen u bij het realiseren van uw bouwplannen met vakmanschap.</p>
+                <h3>Woning Renovatie & Verbouw</h3>
+                <p>Grote en kleine renovatieprojecten. Wij helpen u bij het realiseren van uw bouwplannen met professioneel vakmanschap en oog voor detail.</p>
             </div>
-            <div class="service-card">
+            <div class="service-card reveal">
                 <div class="service-icon"><i class="fas fa-wrench"></i></div>
                 <h3>Onderhoud & Reparatie</h3>
-                <p>Periodiek onderhoud en spoedreparaties. Snel ter plaatse en altijd met de juiste oplossing.</p>
+                <p>Periodiek onderhoud en spoedreparaties voor uw woning of bedrijfspand. Snel ter plaatse en altijd met de juiste, duurzame oplossing.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                <h3>Vloerwerk</h3>
+                <p>Leggen en renoveren van alle soorten vloeren: laminaat, PVC, tegels, hout en meer. Strak gelegd met garantie op vakmanschap.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon"><i class="fas fa-door-open"></i></div>
+                <h3>Deuren & Kozijnen</h3>
+                <p>Plaatsen, repareren en vervangen van deuren, kozijnen en ramen. Inclusief hang- en sluitwerk voor optimale veiligheid en isolatie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Van -->
+    <section class="about-section" id="over-ons">
+        <div class="section">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="fffi.jpg" alt="NK Nouraddine Klusbedrijf Bedrijfsbus">
+                </div>
+                <div class="about-content reveal">
+                    <h2>Over <span>NK Nouraddine</span></h2>
+                    <p>NK Nouraddine Klusbedrijf is uw betrouwbare partner voor alle klus- en onderhoudswerkzaamheden in Maassluis en omgeving. Met jarenlange ervaring in de bouw- en onderhoudsbranche leveren wij altijd vakwerk van topkwaliteit.</p>
+                    <p>Ons motto "Your Partner in Maintenance" staat voor persoonlijke service, transparante communicatie en resultaatgericht werken. Wij komen met onze professioneel bestickerde bus direct naar u toe en regelen alles van A tot Z.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Jarenlange Ervaring</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Scherpe Prijzen</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Snelle Service</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Garantie op Werk</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Persoonlijk Contact</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Lokaal in Maassluis</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Us -->
-    <section class="why-us" id="over-ons">
+    <section class="why-us">
         <div class="section">
-            <div class="section-header">
-                <h2>Waarom Ste Nouraddine?</h2>
-                <p>Wij onderscheiden ons door onze persoonlijke aanpak, vakkennis en betrouwbaarheid.</p>
+            <div class="section-header reveal">
+                <h2>Waarom <span>Kiezen voor Ons?</span></h2>
+                <p>Wij onderscheiden ons door onze professionele aanpak, vakkennis en betrouwbaarheid.</p>
+                <div class="section-line"></div>
             </div>
             <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
                     <div class="feature-text">
-                        <h4>10+ Jaar Ervaring</h4>
-                        <p>Jarenlange ervaring in de bouw en klusbranche.</p>
+                        <h4>Gecertificeerd Vakmanschap</h4>
+                        <p>Gecertificeerd en ervaren in diverse bouw- en onderhoudsdisciplines.</p>
                     </div>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item reveal">
                     <div class="feature-icon"><i class="fas fa-euro-sign"></i></div>
                     <div class="feature-text">
-                        <h4>Scherpe Prijzen</h4>
-                        <p>Transparante offertes zonder verborgen kosten.</p>
+                        <h4>Transparante Prijzen</h4>
+                        <p>Duidelijke offertes zonder verborgen kosten of verrassingen achteraf.</p>
                     </div>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item reveal">
                     <div class="feature-icon"><i class="fas fa-clock"></i></div>
                     <div class="feature-text">
-                        <h4>Snelle Service</h4>
-                        <p>Flexibele planning en snelle responstijden.</p>
+                        <h4>Flexibele Planning</h4>
+                        <p>Wij werken in overleg met u en houden rekening met uw agenda.</p>
                     </div>
                 </div>
-                <div class="feature-item">
+                <div class="feature-item reveal">
                     <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
                     <div class="feature-text">
-                        <h4>Garantie op Werk</h4>
-                        <p>Kwaliteit staat garant voor duurzaam resultaat.</p>
+                        <h4>Garantie op Alle Werkzaamheden</h4>
+                        <p>Kwaliteit staat garant. Wij geven garantie op al ons uitgevoerde werk.</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-handshake"></i></div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-comments"></i></div>
                     <div class="feature-text">
-                        <h4>Persoonlijk Contact</h4>
-                        <p>Duidelijke communicatie van begin tot eind.</p>
+                        <h4>Duidelijke Communicatie</h4>
+                        <p>Van offerte tot oplevering: altijd helder en persoonlijk contact.</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="feature-item reveal">
+                    <div class="feature-icon"><i class="fas fa-truck"></i></div>
                     <div class="feature-text">
-                        <h4>Lokaal in Maassluis</h4>
-                        <p>Actief in Maassluis en omgeving.</p>
+                        <h4>Snel Ter Plaatse</h4>
+                        <p>Met onze professionele bus zijn wij snel bij u in Maassluis en omgeving.</p>
                     </div>
                 </div>
             </div>
@@ -583,50 +931,70 @@
     <!-- Contact Section -->
     <section class="contact-section" id="contact">
         <div class="section">
-            <div class="section-header">
-                <h2>Neem Contact Op</h2>
+            <div class="section-header reveal">
+                <h2>Neem <span>Contact Op</span></h2>
                 <p>Vraag vandaag nog een gratis offerte aan of neem contact met ons op voor meer informatie.</p>
+                <div class="section-line"></div>
             </div>
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Contactgegevens</h3>
+                <div class="contact-info reveal">
+                    <h3>Contact<span>gegevens</span></h3>
                     <div class="contact-item">
                         <i class="fas fa-user"></i>
                         <div>
-                            <strong>Bedrijf</strong><br>
-                            Ste Nouraddine Klusbedrijf
+                            <strong>Bedrijf</strong>
+                            <span>NK Nouraddine Klusbedrijf</span>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <strong>Adres</strong><br>
-                            Kopermolen 31, 3146 SE Maassluis
+                            <strong>Adres</strong>
+                            <span>Kopermolen 31, 3146 SE Maassluis</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Telefoon</strong>
+                            <a href="tel:0031638220529">0031 638 22 05 29</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <strong>WhatsApp</strong>
+                            <a href="https://wa.me/31638220529" target="_blank">+31 638 22 05 29</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <strong>E-mail</strong><br>
-                            info@stenouraddine.nl
+                            <strong>E-mail</strong>
+                            <a href="mailto:nouraddineklusbedrijf@gmail.com">nouraddineklusbedrijf@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <strong>Openingstijden</strong><br>
-                            Ma - Vr: 08:00 - 18:00 | Za: Op afspraak
+                            <strong>Openingstijden</strong>
+                            <span>Ma - Vr: 08:00 - 18:00 | Za: Op afspraak</span>
                         </div>
                     </div>
+                    <div class="social-links">
+                        <a href="https://wa.me/31638220529" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="tel:0031638220529" title="Bel Ons"><i class="fas fa-phone"></i></a>
+                        <a href="mailto:nouraddineklusbedrijf@gmail.com" title="E-mail"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form reveal">
                     <form onsubmit="handleSubmit(event)">
                         <div class="form-group">
-                            <label for="name">Naam</label>
-                            <input type="text" id="name" placeholder="Uw naam" required>
+                            <label for="name">Naam *</label>
+                            <input type="text" id="name" placeholder="Uw volledige naam" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">E-mail</label>
+                            <label for="email">E-mail *</label>
                             <input type="email" id="email" placeholder="uw@email.nl" required>
                         </div>
                         <div class="form-group">
@@ -634,7 +1002,23 @@
                             <input type="tel" id="phone" placeholder="06-12345678">
                         </div>
                         <div class="form-group">
-                            <label for="message">Bericht</label>
+                            <label for="service">Soort Dienst</label>
+                            <select id="service">
+                                <option value="">Selecteer een dienst</option>
+                                <option value="algemeen">Algemene Kluswerkzaamheden</option>
+                                <option value="schilderwerk">Schilderwerk & Afwerking</option>
+                                <option value="timmerwerk">Timmerwerk</option>
+                                <option value="badkamer">Badkamer Renovatie</option>
+                                <option value="keuken">Keuken Renovatie</option>
+                                <option value="renovatie">Woning Renovatie</option>
+                                <option value="onderhoud">Onderhoud & Reparatie</option>
+                                <option value="vloer">Vloerwerk</option>
+                                <option value="deuren">Deuren & Kozijnen</option>
+                                <option value="overig">Overig</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Bericht *</label>
                             <textarea id="message" placeholder="Beschrijf uw klus of vraag..." required></textarea>
                         </div>
                         <button type="submit" class="btn-submit">
@@ -648,17 +1032,24 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Ste Nouraddine Klusbedrijf. Alle rechten voorbehouden. | Kopermolen 31, 3146 SE Maassluis</p>
+        <p>&copy; 2026 <strong>NK Nouraddine Klusbedrijf</strong>. Alle rechten voorbehouden. | Kopermolen 31, 3146 SE Maassluis | Tel: 0031 638 22 05 29</p>
     </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/31638220529" target="_blank" class="whatsapp-float" title="Chat op WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+                navbar.style.background = 'rgba(13,13,13,0.98)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
             } else {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.08)';
+                navbar.style.background = 'rgba(13,13,13,0.95)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
             }
         });
 
@@ -666,33 +1057,63 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             });
         });
 
         // Form submission
         function handleSubmit(e) {
             e.preventDefault();
-            alert('Bedankt voor uw bericht! Wij nemen zo spoedig mogelijk contact met u op.');
+            const name = document.getElementById('name').value;
+            alert('Bedankt ' + name + '! Uw bericht is verstuurd. Wij nemen zo spoedig mogelijk contact met u op.');
             e.target.reset();
         }
 
         // Mobile menu toggle
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.left = '0';
-            navLinks.style.right = '0';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.background = 'white';
-            navLinks.style.padding = '2rem';
-            navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'rgba(13,13,13,0.98)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.boxShadow = '0 20px 40px rgba(0,0,0,0.4)';
+                navLinks.style.borderTop = '2px solid var(--orange)';
+            }
         }
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 
 </body>
-</html>
+</html>'''
+
+with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print("Website saved successfully!")
+print(f"File size: {len(html_content)} characters")
