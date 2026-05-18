@@ -19,7 +19,6 @@ html_content = '''<!DOCTYPE html>
             --white: #ffffff;
             --gray: #6c757d;
             --light-gray: #f5f5f5;
-            --gold: #D4A017;
         }
         
         body {
@@ -297,19 +296,18 @@ html_content = '''<!DOCTYPE html>
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
         }
         
         .service-card {
             background: var(--white);
             border-radius: 20px;
-            padding: 2.5rem;
+            overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
             transition: all 0.4s ease;
             border: 1px solid rgba(0,0,0,0.04);
             position: relative;
-            overflow: hidden;
         }
         
         .service-card::before {
@@ -323,6 +321,7 @@ html_content = '''<!DOCTYPE html>
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s ease;
+            z-index: 2;
         }
         
         .service-card:hover::before { transform: scaleX(1); }
@@ -332,30 +331,65 @@ html_content = '''<!DOCTYPE html>
             box-shadow: 0 25px 60px rgba(0,0,0,0.12);
         }
         
+        .service-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-image-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, var(--white), transparent);
+            pointer-events: none;
+        }
+        
+        .service-content {
+            padding: 1.5rem 2rem 2rem;
+        }
+        
         .service-icon {
-            width: 70px;
-            height: 70px;
+            width: 55px;
+            height: 55px;
             background: linear-gradient(135deg, var(--orange), var(--orange-light));
-            border-radius: 16px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 25px rgba(255,102,0,0.3);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 20px rgba(255,102,0,0.3);
+            margin-top: -40px;
+            position: relative;
+            z-index: 3;
         }
         
         .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
             color: var(--black);
             font-weight: 700;
         }
         
         .service-card p {
             color: var(--gray);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.7;
         }
         
@@ -706,6 +740,7 @@ html_content = '''<!DOCTYPE html>
             .section { padding: 4rem 1.5rem; }
             .about-features { grid-template-columns: 1fr; }
             .hero-contact-bar { gap: 1rem; }
+            .services-grid { grid-template-columns: 1fr; }
         }
         
         /* Scroll Animations */
@@ -784,49 +819,94 @@ html_content = '''<!DOCTYPE html>
         </div>
         <div class="services-grid">
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-tools"></i></div>
-                <h3>Algemene Kluswerkzaamheden</h3>
-                <p>Van kleine reparaties tot uitgebreide onderhoudswerkzaamheden. Geen klus is te klein of te groot voor ons ervaren team. Wij lossen elk probleem vakkundig op.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/bunny-wp-pullzone-lcnorhfy96.b-cdn.net/32097b9f6cb8d811bfbcbb081238c00b48be3f0d.jpg" alt="Algemene Kluswerkzaamheden" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Algemene Kluswerkzaamheden</h3>
+                    <p>Van kleine reparaties tot uitgebreide onderhoudswerkzaamheden. Geen klus is te klein of te groot voor ons ervaren team. Wij lossen elk probleem vakkundig op.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
-                <h3>Schilderwerk & Afwerking</h3>
-                <p>Professioneel schilderwerk binnen en buiten. Wij zorgen voor een strakke, duurzame afwerking die jarenlang mooi blijft. Ook voor behang en spuitwerk.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/604e64fe94b0035f89cd5f3849c14635b878f4f1.jpg" alt="Schilderwerk" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                    <h3>Schilderwerk & Afwerking</h3>
+                    <p>Professioneel schilderwerk binnen en buiten. Wij zorgen voor een strakke, duurzame afwerking die jarenlang mooi blijft. Ook voor behang en spuitwerk.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-hammer"></i></div>
-                <h3>Timmerwerk</h3>
-                <p>Maatwerk in hout van topkwaliteit: van kozijnen en deuren tot maatmeubilair en traprenovaties. Precisie en vakmanschap staan centraal.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/fixitcarpentry.com/00193718b172bb4cc6b28157327c785214809956.jpeg" alt="Timmerwerk" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-hammer"></i></div>
+                    <h3>Timmerwerk</h3>
+                    <p>Maatwerk in hout van topkwaliteit: van kozijnen en deuren tot maatmeubilair en traprenovaties. Precisie en vakmanschap staan centraal.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-bath"></i></div>
-                <h3>Badkamer Renovatie</h3>
-                <p>Complete renovatie van uw badkamer. Van sloopwerk en leidingen tot tegelwerk en installatie. Wij realiseren uw droombadkamer van A tot Z.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.mineraltiles.com/3fc4b56c5ac51f72b9fb6d2a0b1a466c21957e58.png" alt="Badkamer Renovatie" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-bath"></i></div>
+                    <h3>Badkamer Renovatie</h3>
+                    <p>Complete renovatie van uw badkamer. Van sloopwerk en leidingen tot tegelwerk en installatie. Wij realiseren uw droombadkamer van A tot Z.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                <h3>Keuken Renovatie</h3>
-                <p>Vernieuwing van uw keuken inclusief aanpassingen, tegelwerk, installatie van apparatuur en complete make-over. Modern en functioneel.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/www.premierkitchens.net.au/218b59573ed19efb927c305d67b10ceabfe773f4.jpg" alt="Keuken Renovatie" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Keuken Renovatie</h3>
+                    <p>Vernieuwing van uw keuken inclusief aanpassingen, tegelwerk, installatie van apparatuur en complete make-over. Modern en functioneel.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-home"></i></div>
-                <h3>Woning Renovatie & Verbouw</h3>
-                <p>Grote en kleine renovatieprojecten. Wij helpen u bij het realiseren van uw bouwplannen met professioneel vakmanschap en oog voor detail.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/images.stockcake.com/2217b9e41c03c24e1a6ed2b5e4741a6092c83bbb.jpg" alt="Woning Renovatie" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Woning Renovatie & Verbouw</h3>
+                    <p>Grote en kleine renovatieprojecten. Wij helpen u bij het realiseren van uw bouwplannen met professioneel vakmanschap en oog voor detail.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-wrench"></i></div>
-                <h3>Onderhoud & Reparatie</h3>
-                <p>Periodiek onderhoud en spoedreparaties voor uw woning of bedrijfspand. Snel ter plaatse en altijd met de juiste, duurzame oplossing.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/cdn.mrmahir.com/162c402cdb785ab4c6859c9da1eac743a88ef812.jpg" alt="Onderhoud en Reparatie" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-wrench"></i></div>
+                    <h3>Onderhoud & Reparatie</h3>
+                    <p>Periodiek onderhoud en spoedreparaties voor uw woning of bedrijfspand. Snel ter plaatse en altijd met de juiste, duurzame oplossing.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
-                <h3>Vloerwerk</h3>
-                <p>Leggen en renoveren van alle soorten vloeren: laminaat, PVC, tegels, hout en meer. Strak gelegd met garantie op vakmanschap.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/parmaflooring.com/3c904171630560d96ae25c1911df35afadfcae57.jpg" alt="Vloerwerk" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3>Vloerwerk</h3>
+                    <p>Leggen en renoveren van alle soorten vloeren: laminaat, PVC, tegels, hout en meer. Strak gelegd met garantie op vakmanschap.</p>
+                </div>
             </div>
             <div class="service-card reveal">
-                <div class="service-icon"><i class="fas fa-door-open"></i></div>
-                <h3>Deuren & Kozijnen</h3>
-                <p>Plaatsen, repareren en vervangen van deuren, kozijnen en ramen. Inclusief hang- en sluitwerk voor optimale veiligheid en isolatie.</p>
+                <div class="service-image-wrapper">
+                    <img src="https://kimi-web-img.moonshot.cn/img/findthehomepros.com/736cf0fbbbf104d56dab6a0bf5362ca3c4c2c350.jpeg" alt="Deuren en Kozijnen" class="service-image">
+                </div>
+                <div class="service-content">
+                    <div class="service-icon"><i class="fas fa-door-open"></i></div>
+                    <h3>Deuren & Kozijnen</h3>
+                    <p>Plaatsen, repareren en vervangen van deuren, kozijnen en ramen. Inclusief hang- en sluitwerk voor optimale veiligheid en isolatie.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1115,5 +1195,5 @@ html_content = '''<!DOCTYPE html>
 with open('/mnt/agents/output/index.html', 'w', encoding='utf-8') as f:
     f.write(html_content)
 
-print("Website saved successfully!")
+print("Website updated successfully with service images!")
 print(f"File size: {len(html_content)} characters")
